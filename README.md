@@ -1,2 +1,2 @@
 # Chilift Mobile App
-Happy Codin!
+Happy Coding!
