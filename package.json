@@ -1,21 +1,40 @@
 {
-  "name": "chilift-auth",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^5.1.0",
-    "body-parser": "^1.20.1",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.0",
-    "mongoose": "^6.8.3",
-    "nodemon": "^2.0.20"
-  }
+    "name": "auth-chilift",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "ts-node ./index.ts",
+        "dev": "nodemon ./index.ts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ahmedmaamer/auth-chilift.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ahmedmaamer/auth-chilift/issues"
+    },
+    "homepage": "https://github.com/ahmedmaamer/auth-chilift#readme",
+    "dependencies": {
+        "@types/bcrypt": "^5.0.0",
+        "@types/dotenv": "^8.2.0",
+        "@types/express": "^4.17.16",
+        "@types/jsonwebtoken": "^9.0.1",
+        "@types/mongoose": "^5.11.97",
+        "bcrypt": "^5.1.0",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "jsonwebtoken": "^9.0.0",
+        "mongoose": "^6.8.4"
+    },
+    "devDependencies": {
+        "@types/node": "^18.11.18",
+        "nodemon": "^2.0.20",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.9.4"
+    }
 }
