@@ -2,9 +2,10 @@ import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
 import connectToDb from './db';
 import * as dotenv from 'dotenv'
-import { authRouter } from "./routes/authRoutes";
+import { authRouter } from "./authentification/routes/authRoutes";
 
-import { authMiddleware } from './Middlewares/AuthTokenRequired';
+import { authMiddleware } from './authentification/Middlewares/AuthTokenRequired';
+import { feedbackRouter } from '../feedback/router/feedbackRouter'
 
 const app = express();
 //
@@ -13,6 +14,7 @@ dotenv.config();
 //
 app.use(bodyParser.json());
 app.use(authRouter)
+app.use('/feedbacks', feedbackRouter);
 
 
 app.get('/', authMiddleware, (req: Request, res: Response) => {
