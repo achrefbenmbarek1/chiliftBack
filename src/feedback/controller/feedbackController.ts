@@ -4,8 +4,9 @@ import { FeedbackRepoImpl } from '../db/repository/FeedbackRepoImpl';
 
 export const feedback_sendMail = (req: Request, res: Response) => {
     try {
-    const {anythingToAdd, rating, user}= req.body
-        const feedbackData = { anythingToAdd, rating, userName:user.firstName + " " + user.lastName, userMail:user.email}
+        console.log(req.user)
+    const {anythingToAdd, rating }= req.body
+        const feedbackData = { anythingToAdd, rating, userName:req.user.firstName + " " + req.user.lastName, userMail:req.user.email}
         let feedbackRepo = new FeedbackRepoImpl();
         let sendFeedbackInteractor = new SendFeedbackInteractor(feedbackRepo);
         sendFeedbackInteractor.sendFeedback(rating, anythingToAdd, feedbackData.userName, feedbackData.userMail);
