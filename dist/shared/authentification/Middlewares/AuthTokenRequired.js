@@ -39,23 +39,18 @@ exports.authMiddleware = void 0;
 const jwt = __importStar(require("jsonwebtoken"));
 const User_1 = __importDefault(require("../models/User"));
 const authMiddleware = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    const { authorization } = req.headers;
-    // authorization === Bearer ewfjwefjwef
-    if (!authorization) {
-        res.status(401).json({ error: "You must be logged in, token not given" });
+    var _a;
+    try {
+        const token = (_a = req.header("Authorization")) === null || _a === void 0 ? void 0 : _a.replace("Bearer ", "");
+        const payload = jwt.verify(token, process.env.JWT_SECRET);
+        const { _id } = payload;
+        const userData = yield User_1.default.findById(_id);
+        req.user = userData;
+        next();
     }
-    else {
-        const token = authorization.replace("Bearer ", "");
-        try {
-            const payload = jwt.verify(token, process.env.JWT_SECRET);
-            const { _id } = payload;
-            const userData = yield User_1.default.findById(_id);
-            req.user = userData;
-            next();
-        }
-        catch (err) {
-            res.status(401).json({ error: "You must be logged in, token invalid" });
-        }
+    catch (err) {
+        res.status(401).json({ error: "You must be logged in, token invalid" });
+        console.log(err);
     }
 });
 exports.authMiddleware = authMiddleware;

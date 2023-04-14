@@ -1,10 +1,17 @@
 import mongoose, { Schema, Document } from "mongoose";
+import { IQuestions } from "../../type/Questions/IQuestions";
 
+// interface IQuestions {
+//     question1: string;
+//     question2: string;
+//     question3: string;
+// }
 interface IFeedback extends Document {
     userName: string;
     userEmail: string;
     anythingToAdd: string;
     rating: number;
+    questions:IQuestions;
 }
 
 const feedbackSchema: Schema = new Schema({
@@ -14,8 +21,7 @@ const feedbackSchema: Schema = new Schema({
     },
     userEmail: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     anythingToAdd: {
         type: String,
@@ -25,6 +31,11 @@ const feedbackSchema: Schema = new Schema({
         type: Number,
         required: true
     },
+    questions: {
+        question1:{type:String, default: ""}, 
+        question2:{type:String, default: ""},
+        question3:{type:String, default: ""}
+    }
 });
 
 const Feedback = mongoose.model<IFeedback>("IFeedback", feedbackSchema);

@@ -3,9 +3,6 @@ import { Request, Response } from 'express'
 import User from '../models/User';
 
 export const authMiddleware = async (req: Request, res: Response, next: Function): Promise<void> => {
-    // authorization === Bearer ewfjwefjwef
-
-    // const { authorization } = req.headers;
     try {
         const token = req.header("Authorization")?.replace("Bearer ", "") as string;
         const payload = jwt.verify(token, process.env.JWT_SECRET as string);

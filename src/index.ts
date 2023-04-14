@@ -17,7 +17,6 @@ app.use(bodyParser.json());
 app.use(authRouter)
 app.use('/feedbacks', feedbackRouter);
 
-
 app.get('/', authMiddleware, (req: Request, res: Response) => {
     console.log(req.user);
     res.send(req.user);
