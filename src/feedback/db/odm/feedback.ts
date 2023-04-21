@@ -1,12 +1,7 @@
 import mongoose, { Schema, Document } from "mongoose";
 import { IQuestions } from "../../type/Questions/IQuestions";
 
-// interface IQuestions {
-//     question1: string;
-//     question2: string;
-//     question3: string;
-// }
-interface IFeedback extends Document {
+export interface IFeedback extends Document {
     userName: string;
     userEmail: string;
     anythingToAdd: string;
