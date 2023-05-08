@@ -1,1 +1,2 @@
-# chiliftBack
+# Chilift Mobile App
+Happy Coding!
