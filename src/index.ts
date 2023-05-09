@@ -13,7 +13,7 @@ const app = express();
 const PORT = Number(process.env.PORT);
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '/uploads')));
+app.use(express.static(path.join(__dirname, '..', 'uploads')));
 app.use(authRouter)
 app.use('/feedbacks', feedbackRouter);
 app.use('/usersData', usersDataRouter);
@@ -23,6 +23,7 @@ connectToDb(process.env.MONGO_URL as string).then(
     () => {
         app.listen(PORT, () => {
             console.log(`server is running on port ${PORT} `);
+            console.log(path.join(__dirname, '..', 'uploads'))
         })
     }).catch(error => {
         console.log(error)

@@ -1,6 +1,8 @@
 
 import { ArticleRepo } from '../../db/repository/ArticleRepo';
-import { IArticle } from '../../db/odm/article';
+import Article, { IArticle } from '../../db/odm/article';
+import { removeImage } from '../../InfrastructureService/RemoveImage';
+import { error } from 'console';
 export class ArticleInteractor {
     private articleRepo: ArticleRepo;
     constructor(articleRepo: ArticleRepo) {
@@ -18,6 +20,30 @@ export class ArticleInteractor {
         } catch (error) {
             throw error;
         }
+    }
+
+    public async deleteArticle(_id: string): Promise<void> {
+        try {
+            const article: IArticle = await this.articleRepo.removeArticle(_id);
+            if (!article.imageName) {
+                throw error('no image to be removed')
+
+            }
+            removeImage(article.imageName)
+
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    public async modifyArticle(_id: string, data: { title: string, content: string, imageName: string }): Promise<void> {
+        try {
+            await this.articleRepo.modifyArticle(_id, data)
+        } catch (error) {
+            console.log(error);
+            throw error
+        }
+
     }
 }
 
