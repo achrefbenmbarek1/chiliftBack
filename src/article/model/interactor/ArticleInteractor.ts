@@ -41,9 +41,17 @@ export class ArticleInteractor {
             await this.articleRepo.modifyArticle(_id, data)
         } catch (error) {
             console.log(error);
-            throw error
+            throw error;
         }
+    }
 
+    public async unuploadImage(imageName: string) {
+        try {
+            removeImage(imageName);
+        } catch (error) {
+            throw Error('could not remove the image probably it does not exist')
+
+        }
     }
 }
 

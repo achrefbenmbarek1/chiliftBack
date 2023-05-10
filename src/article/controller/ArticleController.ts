@@ -62,5 +62,16 @@ export class ArticleController {
 
         }
     }
+
+    public unuplaodImage = async (req:Request, res:Response)=>{
+        try {
+           const imageName = req.body.imageName 
+            this.articleInteractor.unuploadImage(imageName)
+            res.send('image removed')
+        } catch (error) {
+           console.log(error); 
+            res.sendStatus(500);
+        }
+    }
 }
 

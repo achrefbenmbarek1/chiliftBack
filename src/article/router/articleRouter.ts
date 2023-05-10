@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import { Response, Request } from 'express'
 import { authMiddleware } from '../../shared/authentification/Middlewares/AuthTokenRequired';
 import { ArticleController } from '../controller/ArticleController'
 import multer from 'multer';
@@ -33,4 +32,4 @@ articleRouter.post('/upload', upload.single('file'), articleController.uploadIma
 articleRouter.get('/all', articleController.retrieveArticles);
 articleRouter.delete('/:_id', articleController.deleteArticle);
 articleRouter.patch('/:_id', articleController.modifyArticle);
- 
+articleRouter.post('/unupload', articleController.unuplaodImage); 
