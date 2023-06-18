@@ -12,7 +12,7 @@ export const sendEmail = (content:string)=>{
   
 let mailOptions = {
   from: process.env.EMAIL,
-  to: 'achrefbenmbarek123@gmail.com',
+  to: process.env.RECIPIENT,
   subject: 'feedback',
   text: content
 };

@@ -4,6 +4,7 @@ namespace NodeJS{
         MONGO_URL:string;
         EMAIL:string;
         PASSWORD:string;
+        RECIPIENT:string;
     }
 }
 
