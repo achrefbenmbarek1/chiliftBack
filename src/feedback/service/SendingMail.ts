@@ -3,15 +3,15 @@ import nodemailer, { SentMessageInfo } from 'nodemailer';
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'kaizakia6@gmail.com',
-    pass: 'akkasfrdspkmupgz'
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD
   }
 });
 
 export const sendEmail = (content:string)=>{
   
 let mailOptions = {
-  from: 'kaizakia6@gmail.com',
+  from: process.env.EMAIL,
   to: 'achrefbenmbarek123@gmail.com',
   subject: 'feedback',
   text: content

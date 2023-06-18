@@ -1,5 +1,5 @@
 {
-    "name": "auth-chilift",
+    "name": "chiliftBack",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -10,15 +10,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/ahmedmaamer/auth-chilift.git"
+        "url": "git+https://github.com/achrefbenmbarek1/chiliftBack.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/ahmedmaamer/auth-chilift/issues"
+        "url": "https://github.com/achrefbenmbarek1/chiliftBack/issues"
     },
-    "homepage": "https://github.com/ahmedmaamer/auth-chilift#readme",
+    "homepage": "https://github.com/achrefbenmbarek1/chiliftBack#readme",
     "dependencies": {
         "@types/bcrypt": "^5.0.0",
         "@types/dotenv": "^8.2.0",
