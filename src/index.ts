@@ -23,7 +23,6 @@ connectToDb(process.env.MONGO_URL as string).then(
     () => {
         app.listen(PORT, () => {
             console.log(`server is running on port ${PORT} `);
-            console.log(path.join(__dirname, '..', 'uploads'))
         })
     }).catch(error => {
         console.log(error)

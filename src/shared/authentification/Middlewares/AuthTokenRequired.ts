@@ -4,6 +4,7 @@ import User from '../models/User';
 
 export const authMiddleware = async (req: Request, res: Response, next: Function): Promise<void> => {
     try {
+        console.log("hani houni")
         const token = req.header("Authorization")?.replace("Bearer ", "") as string;
         const payload = jwt.verify(token, process.env.JWT_SECRET as string);
         const { _id } = payload as { _id: string };

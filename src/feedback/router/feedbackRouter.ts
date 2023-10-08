@@ -3,6 +3,9 @@ import { authMiddleware } from '../../shared/authentification/Middlewares/AuthTo
 import { FeedBackController } from '../controller/FeedbackController'
 export const feedbackRouter = Router();
 const feedbackController = new FeedBackController();
-feedbackRouter.post('/',authMiddleware,feedbackController.sendFeedback);
+// feedbackRouter.post('/',authMiddleware,feedbackController.sendFeedback);
+feedbackRouter.post('/', authMiddleware, (req, res)=> {
+  feedbackController.sendFeedback(req, res);
+})
 feedbackRouter.get('/all',feedbackController.retrieveFeedback);
 

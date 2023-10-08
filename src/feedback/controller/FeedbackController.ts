@@ -1,7 +1,7 @@
-import { FeedbackInteractor } from '../model/interactor/FeedbackInteractor';
 import { Response, Request } from 'express'
 import { FeedbackRepoImpl } from '../db/repository/FeedbackRepoImpl';
 import { IFeedback } from '../db/odm/feedback';
+import { FeedbackInteractor } from '../interactor/FeedbackInteractor';
 
 export class FeedBackController {
     private feedbackInteractor = new FeedbackInteractor(new FeedbackRepoImpl());
