@@ -33,7 +33,9 @@ export class FeedbackInteractor {
       userEmail,
       questions,
     );
+      console.log('jit lina')
       await sendMail(feedbackTextContent, feedbackHtmlContent);
+    console.log('9rit ilkol')
   }
   public async retrieveFeedbacks(): Promise<IFeedback[]> {
     try {

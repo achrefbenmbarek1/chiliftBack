@@ -15,6 +15,8 @@ oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
 async function sendMail(feedbackTextContent:string, feedbackHtmlContent:string) {
   try {
+    console.log(process.env.REFRESH_TOKEN)
+    console.log("mail yeh dik 1")
     const accessToken = await oAuth2Client.getAccessToken();
 
     const transport = nodemailer.createTransport({
@@ -37,9 +39,12 @@ async function sendMail(feedbackTextContent:string, feedbackHtmlContent:string) 
       html: feedbackHtmlContent,
     };
 
+    console.log("mail yeh dik")
     const result = await transport.sendMail(mailOptions);
+    console.log("t3adit")
     return result;
   } catch (error) {
+    console.log(error)
     return error;
   }
 }
